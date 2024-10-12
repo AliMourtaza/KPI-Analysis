@@ -2,7 +2,7 @@
 
 ### Project Overview
 
-Need to analyze key indicators for pizza sales data to gain business insight.
+Need to analyze pizza sales data to gain business insight.
 
 ### Data Sources
 
@@ -25,9 +25,23 @@ In the initial data preparation phase, I performed the following tasks:
 ### KPI's
 
 **Total Revenue**
-```sql
+```SQL
 select sum(total_price) as Total_Revenue
 from pizza_sales;
 ```
 ![image](https://github.com/user-attachments/assets/2491db4d-b4fd-49cf-ae57-97e40751db32)
+
+**Average Order Value**
+```SQL
+select sum(total_price)/ count(DISTINCT order_id) as Average_Order_Value
+from pizza_sales;
+```
+![image](https://github.com/user-attachments/assets/20a27fc7-50c0-407e-8b30-db04a631c5a5)
+
+**Total Pizza Sold**
+```SQL
+select sum(total_price)/ count(DISTINCT order_id) as Average_Order_Value
+from pizza_sales;
+```
+![image](https://github.com/user-attachments/assets/cb631cc9-33bd-4619-8b48-f62a494bb109)
 
