@@ -1,2 +1,2 @@
 # KPI-Analysis
-Need analyze key indicators for pizza sales data to gain insight
+Need to analyze key indicators for pizza sales data to gain insight
