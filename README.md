@@ -40,8 +40,20 @@ from pizza_sales;
 
 **Total Pizza Sold**
 ```SQL
-select sum(total_price)/ count(DISTINCT order_id) as Average_Order_Value
+select sum(quantity) as Total_Pizza_Sold
 from pizza_sales;
 ```
 ![image](https://github.com/user-attachments/assets/cb631cc9-33bd-4619-8b48-f62a494bb109)
 
+**Total Orders**
+```SQL
+select sum(distinct order_id) as Total_Order
+from pizza_sales;
+```
+![image](https://github.com/user-attachments/assets/e25f2ed2-5a8e-4948-a87f-cc6a4a9d7fe4)
+
+**Average Pizzas Per Order**
+```SQL
+select sum(total_price)/ count(DISTINCT order_id) as Average_Order_Value
+from pizza_sales;
+```
