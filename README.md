@@ -26,34 +26,43 @@ In the initial data preparation phase, I performed the following tasks:
 
 **Total Revenue**
 ```SQL
-select sum(total_price) as Total_Revenue
-from pizza_sales;
+SELECT SUM(total_price) As Total_revenue
+FROM pizza_sales;
 ```
-![image](https://github.com/user-attachments/assets/2491db4d-b4fd-49cf-ae57-97e40751db32)
+![image](https://github.com/user-attachments/assets/0299fb25-b0f5-4045-a616-3029f096ba5f)
 
 **Average Order Value**
 ```SQL
-select sum(total_price)/ count(DISTINCT order_id) as Average_Order_Value
-from pizza_sales;
+SELECT SUM(total_price)/ COUNT(DISTINCT order_id) As Average_order_value
+FROM pizza_sales;
 ```
-![image](https://github.com/user-attachments/assets/20a27fc7-50c0-407e-8b30-db04a631c5a5)
+![image](https://github.com/user-attachments/assets/5fb38c11-6ec4-4b33-9c2a-f3d4499225de)
 
 **Total Pizza Sold**
 ```SQL
-select sum(quantity) as Total_Pizza_Sold
-from pizza_sales;
+SELECT SUM(quantity) As Total_pizza_sold
+FROM pizza_sales;
 ```
-![image](https://github.com/user-attachments/assets/cb631cc9-33bd-4619-8b48-f62a494bb109)
+![image](https://github.com/user-attachments/assets/17f0de25-95e2-4abe-ac45-6f6ac61f645a)
 
 **Total Orders**
 ```SQL
-select sum(distinct order_id) as Total_Order
-from pizza_sales;
+SELECT SUM(DISTINCT order_id) As Total_orders
+FROM pizza_sales;
 ```
-![image](https://github.com/user-attachments/assets/e25f2ed2-5a8e-4948-a87f-cc6a4a9d7fe4)
+![image](https://github.com/user-attachments/assets/d967200f-7879-4c44-954a-af45b7f4baf4)
+
 
 **Average Pizzas Per Order**
 ```SQL
-select sum(total_price)/ count(DISTINCT order_id) as Average_Order_Value
-from pizza_sales;
+SELECT CAST(
+           CAST(SUM(quantity) AS DECIMAL(10, 2)) /
+           CAST(COUNT(DISTINCT order_id) AS DECIMAL(10, 2)) 
+           AS DECIMAL(10, 2)
+       ) AS Average_pizzas_per_order
+FROM pizza_sales;
 ```
+![image](https://github.com/user-attachments/assets/c5c8dd51-1e79-458f-ab83-70a236304862)
+
+### Data Analysis
+**Daily Trend for Total Orders**
