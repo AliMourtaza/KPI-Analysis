@@ -66,3 +66,27 @@ FROM pizza_sales;
 
 ### Data Analysis
 **Daily Trend for Total Orders**
+```SQL
+SELECT 
+    DATENAME(DW, order_date) AS Order_day, 
+    COUNT(DISTINCT order_id) AS Total_orders
+FROM 
+    pizza_sales
+GROUP BY 
+    DATENAME (DW, order_date);
+```
+![image](https://github.com/user-attachments/assets/979cc446-ae15-40f1-be4d-170a29d2fd3d)
+
+**Hourly Trend for Orders**
+```SQL
+SELECT 
+    DATEPART(HOUR, order_time) AS Order_Hours, 
+    COUNT(DISTINCT order_id) AS Total_Orders
+FROM 
+    pizza_sales
+GROUP BY 
+    DATEPART(HOUR, order_time)
+ORDER BY
+    DATEPART(HOUR, order_time);
+```
+![image](https://github.com/user-attachments/assets/0c4be8a8-53f5-434b-8cee-f9458c109148)
