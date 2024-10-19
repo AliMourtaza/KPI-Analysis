@@ -104,3 +104,24 @@ FROM
     pizza_sales
 GROUP BY 
     pizza_category;
+```
+![image](https://github.com/user-attachments/assets/a47408c9-bd30-4de1-8b35-e80955eb7658)
+
+**% of Sales by Pizza Size**
+```SQL
+SELECT 
+    pizza_size, 
+    CAST(SUM(total_price) AS DECIMAL(10, 2)) AS total_revenue, 
+    CAST(
+        SUM(total_price) * 100.0 / (SELECT SUM(total_price) FROM pizza_sales) 
+        AS DECIMAL(10, 2)
+    ) AS percentage_of_pizza_size
+FROM 
+    pizza_sales
+GROUP BY 
+   pizza_size
+ORDER BY
+   pizza_size;
+```
+![image](https://github.com/user-attachments/assets/908d801a-8dd4-40f9-9837-80c77294ca96)
+
