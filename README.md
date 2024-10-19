@@ -90,3 +90,17 @@ ORDER BY
     DATEPART(HOUR, order_time);
 ```
 ![image](https://github.com/user-attachments/assets/0c4be8a8-53f5-434b-8cee-f9458c109148)
+
+**% of Sales by Pizza Category**
+```SQL
+SELECT 
+    pizza_category, 
+    CAST(SUM(total_price) AS DECIMAL(10, 2)) AS total_revenue, 
+    CAST(
+        SUM(total_price) * 100.0 / (SELECT SUM(total_price) FROM pizza_sales) 
+        AS DECIMAL(10, 2)
+    ) AS percentage_of_total_sales
+FROM 
+    pizza_sales
+GROUP BY 
+    pizza_category;
