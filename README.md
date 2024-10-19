@@ -125,4 +125,46 @@ ORDER BY
 ```
 ![image](https://github.com/user-attachments/assets/2c200ec8-9778-4c1a-9a13-8f8a7c900032)
 
+**Total Pizzas Sold by Pizza Category**
+```SQL
+SELECT 
+    pizza_category, 
+    SUM(quantity) AS total_quantity_sold
+FROM 
+    pizza_sales
+WHERE 
+    DATEPART(MONTH, order_date) = 1
+GROUP BY 
+    pizza_category
+ORDER BY 
+    total_quantity_sold DESC
+```
+![image](https://github.com/user-attachments/assets/8b863758-0621-4591-bf11-5e519a3b1d47)
 
+**Top 5 Best Sellers by Total Pizzas Sold**
+```SQL
+SELECT TOP 5 
+    pizza_name, 
+    SUM(quantity) AS total_pizza_sold
+FROM 
+    pizza_sales
+GROUP BY 
+    pizza_name
+ORDER BY 
+    total_pizza_sold DESC;
+```
+![image](https://github.com/user-attachments/assets/7cc183bd-1406-4a2b-a31e-b17dd165a426)
+
+**Top 5 Worst Sellers by Total Pizzas Sold**
+```SQL
+SELECT TOP 5 
+    pizza_name, 
+    SUM(quantity) AS total_pizza_sold
+FROM 
+    pizza_sales
+GROUP BY 
+    pizza_name
+ORDER BY 
+    total_pizza_sold ASC;
+```
+![image](https://github.com/user-attachments/assets/84703370-e7ab-49a9-a932-cbf5b2529b79)
