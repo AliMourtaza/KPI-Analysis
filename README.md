@@ -168,3 +168,11 @@ ORDER BY
     total_pizza_sold ASC;
 ```
 ![image](https://github.com/user-attachments/assets/84703370-e7ab-49a9-a932-cbf5b2529b79)
+
+### Findings
+- Orders are maximum on **weekends, Friday/Saturday evenings**
+- There are highest orders on **12-01 pm & after 4-8 pm**
+- **Classic category** contributes to maximum sales & orders
+- **Large Size Pizza** contributes the highest sales
+- **Classic Deluxe and Chicken Pizza** generate more revenue
+- **The Brie Carre Pizza** is at the bottom of both orders and revenue
